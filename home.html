@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodge | Autos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Reset + body same as yours */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Added */
+}
+
+body {
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif; /* added for consistency */
+}
+
+/* Header */
+header {
+  background: #000;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 60px;
+  position: relative;
+  z-index: 1000;
+}
+
+.logo img {
+  width: 100px;
+  max-width: 100%;
+  height: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 8px 5px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #d10000;
+    color: #fff;
+    padding: 10px;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  nav ul {
+    gap: 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    background: #111;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    display: none;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav ul li {
+    text-align: center;
+    margin: 15px 0;
+    padding: 10px;
+  }
+
+  nav ul li:hover{
+    background-color: #ff0000;
+    color: #fff;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger:hover{
+    color: #ff0000;
+  }
+}
+
+/* Hero section */
+#hero {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("16bf2a9c5ae05e49ac0acd300723431a.jpg");
+  height: 340px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero {
+  color: white;
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 0.3em;
+}
+
+.hero h1:first-child {
+  color: red;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.hero h1:nth-child(2) {
+  font-size: 1.8rem;
+  margin-bottom: 0.5em;
+}
+
+.hero p {
+  font-size: 1rem;
+  margin-bottom: 1em;
+}
+
+.hero a button {
+  margin: 0 0.5em 0.5em 0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.hero a button.explore {
+  background-color: red;
+  color: white;
+}
+
+.hero a button.explore:hover {
+  background-color: #b30000;
+}
+
+.hero a button:nth-child(2) {
+  background: rgba(94, 94, 94, 0.65);
+  color: rgb(231, 231, 231);
+  border: 1px solid white;
+}
+
+.hero a button:nth-child(2):hover {
+  background-color: red;
+  color: white;
+}
+
+/* Car types and cards */
+.car-types{
+    background-color: #000;
+    margin-top: 10px;
+    margin-bottom: 18px;
+}
+.car-types ul{
+    background-color: #333;
+    display: flex;
+    padding: 16px;
+    text-align: center;
+    justify-content: center;
+    gap: 20px;
+}
+.car-types ul li{
+    list-style-type: none;
+}
+.car-types ul li a{
+    padding: 8px;
+    width: 100px;
+    text-decoration: none;
+    color: #fff;
+} 
+.car-types ul li a:hover{
+    background-color: red;
+}
+.car-types ul li a:active{
+    background-color: red;
+}
+#car-cards{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-evenly;
+}
+.car-types .car-cards img{
+    width: 220px;
+    margin-top: 10px;
+    
+}
+.car-types .car-cards{
+margin-top: 19px;
+width: 250px;
+border-radius: 10px;
+border: 2px solid #333;
+padding: 15px;
+
+}
+.car-types .car-cards h3{
+    font-size: 0.5cm;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.car-types .car-cards p{
+    font-size: 13px;
+}
+
+.car-types ul li a:hover,
+.car-types ul li a:active {
+  background-color: red;
+  color: #fff;
+}
+
+#car-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.car-cards {
+  background-color: #111;
+  margin-top: 10px;
+  width: 240px;
+  border-radius: 10px;
+  border: 2px solid #333;
+  padding: 15px;
+  transition: transform 0.3s ease;
+}
+
+.car-cards:hover {
+  transform: scale(1.05);
+  border-color: red;
+}
+
+.car-cards img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.car-cards h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.car-cards p {
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+/* Features */
+.features {
+  margin-top: 50px;
+  padding: 0 10px 40px;
+  
+}
+
+.features h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.features h2 span {
+  color: red;
+}
+
+.feature-cards {
+  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+  margin-top: 2em;
+}
+
+.feature-cards .card {
+  background: #111;
+  padding: 2em;
+  border-radius: 8px;
+  width: 250px;
+  text-align: center;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+.feature-cards .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px red;
+}
+
+.feature-cards .card i {
+  font-size: 2.5em;
+  color: #ff0000;
+  margin-bottom: 0.5em;
+}
+
+/* Power Section */
+.power {
+  background-color: #d10000;
+  color: #fff;
+  text-align: center;
+  padding: 2em 1em;
+  border-radius: 16px;
+  margin: 2em 10px;
+}
+
+.power h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+
+.power p {
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Build Section */
+.build {
+  height: 340px;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url('red dodge.jpeg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.build-text h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+
+.build-text p {
+  max-width: 450px;
+  margin: 0 auto 1em;
+  font-size: 1rem;
+}
+
+.build-text a button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.build-text a button:hover {
+  background-color: #b30000;
+}
+
+/* Footer */
+footer {
+  background-color: #111;
+  color: #fff;
+  padding: 2em 1em;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer img {
+  width: 60px;
+  margin-bottom: 1em;
+}
+
+footer a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: red;
+}
+
+footer .fab {
+  margin: 0 10px;
+  font-size: 1.2rem;
+}
+
+/* MOBILE ADJUSTMENTS */
+
+/* Smaller phones */
+@media (max-width: 480px) {
+  .hero h1:first-child {
+    font-size: 1.6rem;
+  }
+  .hero h1:nth-child(2) {
+    font-size: 1.2rem;
+  }
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+
+  .car-types{
+    background-color: #000;
+    margin-top: 10px;
+    margin-bottom: 18px;
+}
+.car-types ul{
+    background-color: #333;
+    display: flex;
+    padding: 16px;
+    text-align: center;
+    justify-content: center;
+    gap: 20px;
+}
+.car-types ul li{
+    list-style-type: none;
+}
+.car-types ul li a{
+    padding: 8px;
+    width: 100px;
+    text-decoration: none;
+    color: #fff;
+} 
+.car-types ul li a:hover{
+    background-color: red;
+}
+.car-types ul li a:active{
+    background-color: red;
+}
+#car-cards{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-evenly;
+}
+.car-cards img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.car-types .car-cards{
+margin-top: 19px;
+width: 250px;
+border-radius: 10px;
+border: 2px solid #333;
+padding: 15px;
+
+}
+.car-types .car-cards h3{
+    font-size: 0.5cm;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.car-types .car-cards p{
+    font-size: 13px;
+}
+  .feature-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .feature-cards .card {
+    width: 90vw;
+    margin-bottom: 1.5em;
+  }
+  .build {
+    height: auto;
+    padding: 40px 20px;
+  }
+  .build-text h2 {
+    font-size: 1.5rem;
+  }
+  .build-text p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .car-cards {
+    width: 45vw;
+  }
+  .feature-cards .card {
+    width: 45vw;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+  <div class="logo">
+    <img src="IMG-20250521-WA0008.jpg" alt="Logo"  width="100px"/>
+  </div>
+
+  <nav>
+    <ul id="nav-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Cars</a></li>
+      <li><a href="#">Explore</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <i class="fas fa-bars"></i>
+  </button>
+</header>
+
+    <section id="hero">
+        <div class="hero">
+            <h1 style="color: red; font-size: 1cm; font-style: bold; font-family:Arial, Helvetica, sans-serif ">POWER</h1>
+            <h1 style="color: white; font-size: 0.8cm; ">Meets Performance</h1>
+            <p>Discover the full lineup of Dodge vehicles 
+            - enginered for those who seek thrill.</p>
+            <br>
+            <a href="#"><button style="background-color: red; color:white; border: none;" class="explore">Explore Cars <i class="fas fa-arrow-right"></i></button></a>
+            <a href="#"><button class="explore" style="background: rgba(94, 94, 94, 0.651); color:rgb(231, 231, 231); border: 1px solid white;">Contact us</button></a>
+        </div>
+    </section>
+    <div class="car-types">
+        <ul>
+            <li><a href="#">SUVS</a></li>
+            <li><a href="#">MUSCLE</a></li>
+            <li><a href="#">ELECTRIC</a></li>
+        </ul>
+        <div id="car-cards">
+            <div class="car-cards">
+                <img src="BLACK SUV DURANGO.jpeg" alt="">
+            <h3>Dodge Durango</h3>
+            <p>A mid-size SUV with a strong V6 or V8 engine, 
+            offering seating for up to passangers
+        </p>
+    </div>
+        <div class="car-cards">
+            <img src="DODGE HORNET.jpeg" alt="">
+            <h3>Dodge Hornet</h3>
+            <p>A compact SUV with a stylish design and impressive 
+            features.
+            </p>
+        </div>
+        <div class="car-cards">
+            <img src="dodge hornet 2.jpeg" alt="">
+            <h3>Dodge Hornet</h3>
+            <p>A compact SUV with a stylish design and impressive 
+            features.
+            </p>
+        </div>
+        <div class="car-cards">
+            <img src="dodge stealth.jpeg" alt="">
+            <h3>Dodge Stealth</h3>
+            <p>A mid-size SUV with a strong V6 or V8 engine, 
+                offering seating for up to passangers
+            </p>
+        </div>
+    </div>
+    </div>
+
+    <div class="features">
+        <h2>Legendary <span style="color: red;">Features</span></h2>
+        <br>
+        <br>
+        <br>
+        <div class="feature-cards">
+      <div class="card">
+        <i class="fas fa-tv"></i>
+        <h3>Interior Tech</h3>
+        <p>Cutting-edge technology with intuitive controls and premium entertainment systems.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Safety Systems</h3>
+        <p>Comprehensive safety features designed to protect you and your passengers.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-cogs"></i>
+        <h3>Advanced Engineering</h3>
+        <p>Premium performance components engineered for maximum power and handling.</p>
+      </div>
+    </div>
+        </div>
+
+    </div>
+
+
+    <div class="power">
+        <h2>Hear The Power</h2>
+        <br>
+        <p>Expirence the iconic Dodge exhaust note that announces your arrival</p>
+        <br>
+        <audio controls src=""></audio>
+    </div>
+
+    <div class="build">
+        <div class="build-text">
+
+            <h2>Build Your Dream Dodge</h2>
+            <p>Customize your perfect Dodge vehicle with our interactive builder.
+                Choose colors, trims, performance options, and more.
+            </p>
+            <a href="#"><button style="background-color: red; color:white; border: none;" class="explore">Start Building           <i class="fas fa-arrow-right"></i></button></a>
+        </div>
+    </div>
+
+    <footer style="background-color: #111; color: #fff; padding: 2em; text-align: center;">
+    <div style="margin-bottom: 1em;">
+        <img src="IMG-20250521-WA0008.jpg" alt="logo" style="width: 60px;">
+    </div>
+    <div style="margin-bottom: 1em;">
+        <a href="#" style="color: white; margin: 0 15px; text-decoration: none;">Home</a>
+        <a href="#" style="color: white; margin: 0 15px; text-decoration: none;">Cars</a>
+        <a href="#" style="color: white; margin: 0 15px; text-decoration: none;">Explore</a>
+        <a href="#" style="color: white; margin: 0 15px; text-decoration: none;">Contact</a>
+    </div>
+    <div style="margin-bottom: 1em;">
+        <a href="#"><i class="fab fa-facebook" style="color: white; margin: 0 10px;"></i></a>
+        <a href="#"><i class="fab fa-twitter" style="color: white; margin: 0 10px;"></i></a>
+        <a href="#"><i class="fab fa-instagram" style="color: white; margin: 0 10px;"></i></a>
+        <a href="#"><i class="fab fa-youtube" style="color: white; margin: 0 10px;"></i></a>
+    </div>
+    <p style="font-size: 14px; color: #aaa;">&copy; 2025 Dodge Showcase. All rights reserved.</p>
+</footer>
+
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navUL = document.querySelector('nav ul');
+
+  hamburger.addEventListener('click', () => {
+    navUL.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>
