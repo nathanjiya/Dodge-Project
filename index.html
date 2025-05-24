@@ -194,6 +194,7 @@ nav ul li a:hover {
   color: white;
 }
 
+
 /* Car types and cards */
 .car-types{
     background-color: #000;
@@ -223,78 +224,41 @@ nav ul li a:hover {
 .car-types ul li a:active{
     background-color: red;
 }
-#car-cards{
-    flex-wrap: wrap;
+.car-section {
+    width: 100%;
     display: flex;
-    justify-content: space-evenly;
-}
-.car-types .car-cards img{
-    width: 220px;
-    margin-top: 10px;
-    
-}
-.car-types .car-cards{
-margin-top: 19px;
-width: 250px;
-border-radius: 10px;
-border: 2px solid #333;
-padding: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    margin-top: 2em;
+  }
 
-}
-.car-types .car-cards h3{
-    font-size: 0.5cm;
-    margin-bottom: 8px;
-    margin-top: 8px;
-}
+  .car-cards {
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 1em;
+    width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 
-.car-types .car-cards p{
-    font-size: 13px;
-}
-
-.car-types ul li a:hover,
-.car-types ul li a:active {
-  background-color: red;
-  color: #fff;
-}
-
-#car-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 10px 0;
-}
-
-.car-cards {
-  background-color: #111;
-  margin-top: 10px;
-  width: 240px;
-  border-radius: 10px;
-  border: 2px solid #333;
-  padding: 15px;
-  transition: transform 0.3s ease;
+.car-cards h3 {
+  color: red;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .car-cards:hover {
   transform: scale(1.05);
-  border-color: red;
 }
 
-.car-cards img {
-  width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-}
 
-.car-cards h3 {
-  font-size: 1.2rem;
-  margin: 10px 0;
-}
-
-.car-cards p {
-  font-size: 0.9rem;
-  line-height: 1.3;
-}
+  .car-cards img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
 
 /* Features */
 .features {
@@ -306,7 +270,7 @@ padding: 15px;
 .features h2 {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
 }
 
 .features h2 span {
@@ -318,7 +282,7 @@ padding: 15px;
     display: flex;
     justify-content: space-evenly;
     gap: 10px;
-  margin-top: 2em;
+
 }
 
 .feature-cards .card {
@@ -438,7 +402,14 @@ footer .fab {
 /* MOBILE ADJUSTMENTS */
 
 /* Smaller phones */
-@media (max-width: 480px) {
+@media (max-width: 680px) {
+  #hero {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("16bf2a9c5ae05e49ac0acd300723431a.jpg");
+  }
   .hero h1:first-child {
     font-size: 1.6rem;
   }
@@ -570,47 +541,81 @@ padding: 15px;
         </div>
     </section>
     <div class="car-types">
-        <ul>
-            <li><a href="#">SUVS</a></li>
-            <li><a href="#">MUSCLE</a></li>
-            <li><a href="#">ELECTRIC</a></li>
-        </ul>
-        <div id="car-cards">
+    <ul>
+        <li><a href="#" onclick="showSection('suvs')">SUVS</a></li>
+        <li><a href="#" onclick="showSection('muscle')">MUSCLE</a></li>
+        <li><a href="#" onclick="showSection('electric')">ELECTRIC</a></li>
+    </ul>
+
+    <div id="car-cards" style="display: flex; ">
+        <!-- SUV Section -->
+        <div class="car-section" id="suvs">
             <div class="car-cards">
                 <img src="BLACK SUV DURANGO.jpeg" alt="">
-            <h3>Dodge Durango</h3>
-            <p>A mid-size SUV with a strong V6 or V8 engine, 
-            offering seating for up to passangers
-        </p>
-    </div>
-        <div class="car-cards">
-            <img src="DODGE HORNET.jpeg" alt="">
-            <h3>Dodge Hornet</h3>
-            <p>A compact SUV with a stylish design and impressive 
-            features.
-            </p>
+                <h3>Dodge Durango</h3>
+                <p>A mid-size SUV with a strong V6 or V8 engine, offering seating for up to passengers.</p>
+            </div>
+            <div class="car-cards">
+                <img src="DODGE HORNET.jpeg" alt="">
+                <h3>Dodge Hornet</h3>
+                <p>A compact SUV with a stylish design and impressive features.</p>
+            </div>
+            <div class="car-cards">
+                <img src="dodge hornet 2.jpeg" alt="">
+                <h3>Dodge Hornet</h3>
+                <p>A compact SUV with a stylish design and impressive features.</p>
+            </div>
+            <div class="car-cards">
+                <img src="dodge stealth.jpeg" alt="">
+                <h3>Dodge Stealth</h3>
+                <p>A mid-size SUV with a strong V6 or V8 engine, offering seating for up to passengers.</p>
+            </div>
         </div>
-        <div class="car-cards">
-            <img src="dodge hornet 2.jpeg" alt="">
-            <h3>Dodge Hornet</h3>
-            <p>A compact SUV with a stylish design and impressive 
-            features.
-            </p>
+
+        <!-- Muscle Section -->
+        <div class="car-section" id="muscle" style="display: none;">
+            <div class="car-cards">
+                <img src="dodge challenger red.jpeg" alt="">
+                <h3>Dodge Challenger</h3>
+                <p>A legendary muscle car known for its aggressive style and powerful performance.</p>
+            </div>
+            <div class="car-cards">
+                <img src="dodge srt.jpeg" alt="">
+                <h3>Dodge Challenger SRT</h3>
+                <p>A legendary muscle car known for its aggressive style and powerful performance.</p>
+            </div>
+            <div class="car-cards">
+                <img src="dodge charger black.jpeg" alt="">
+                <h3>Dodge Charger</h3>
+                <p>A bold, full-size sedan with classic muscle DNA and impressive horsepower.</p>
+            </div>
+            <div class="car-cards">
+                <img src="dodge scat.jpeg" alt="">
+                <h3>Dodge Charger SCAT</h3>
+                <p>A bold, full-size sedan with classic muscle DNA and impressive horsepower.</p>
+            </div>
         </div>
-        <div class="car-cards">
-            <img src="dodge stealth.jpeg" alt="">
-            <h3>Dodge Stealth</h3>
-            <p>A mid-size SUV with a strong V6 or V8 engine, 
-                offering seating for up to passangers
-            </p>
+
+        <!-- Electric Section -->
+        <div class="car-section" id="electric" style="display: none;">
+            <div class="car-cards">
+                <img src="dodge ev.jpeg" alt="">
+                <h3>Dodge EV Concept</h3>
+                <p>The future of performance with all-electric power and iconic Dodge spirit.</p>
+            </div>
+        <div class="car-section" id="electric" style="display: none;">
+            <div class="car-cards">
+                <img src="Dodge emuscle.jpeg" alt="">
+                <h3>Coming Soon!</h3>
+                <p>Coming soo dodge new release</p>
+            </div>
         </div>
     </div>
-    </div>
+</div>
+
 
     <div class="features">
         <h2>Legendary <span style="color: red;">Features</span></h2>
-        <br>
-        <br>
         <br>
         <div class="feature-cards">
       <div class="card">
@@ -680,6 +685,18 @@ padding: 15px;
   hamburger.addEventListener('click', () => {
     navUL.classList.toggle('show');
   });
+
+  function showSection(sectionId) {
+    // Hide all sections
+    document.querySelectorAll('.car-section').forEach(section => {
+        section.style.display = 'none';
+    });
+
+    // Show the selected section
+    document.getElementById(sectionId).style.display = 'flex';
+    document.getElementById(sectionId).style.flexWrap = 'Wrap';
+    document.getElementById(sectionId).style.justifyContent = 'Space-evenly';
+}
 </script>
 
 </body>
